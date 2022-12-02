@@ -25,13 +25,19 @@ if ( ! defined( 'ABSPATH' ) ) {
       <code id="pixcodestr" style="font-size: 87.5%; color: #e83e8c; word-wrap: break-word;"><?php echo esc_html($code); ?></code>
       <br />
       <input type="text" id="pixcode" style="display:none;">
-      <button onclick="copypix()">Clique aqui para copiar</button>
+      <button onclick="copypix() id="pixbtn">Clique aqui para copiar</button>
     </div>
   </div>
 </div>
 <p style="margin-top: 1rem;">Caso já tenha feito o pagamento, verifique se foi confirmado na página de <a href="<?php echo$order->get_view_order_url(); ?>">detalhes do pedido</a></p>
 
 <script type="text/javascript">
+	
+	const btn = document.getElementById('pixbtn');
+	btn.addEventListener('click', function handleClick() {
+	btn.textContent = 'Código copiado';
+	});
+
 
     document.getElementById('pixcode').value = document.getElementById('pixcodestr').innerHTML;
   
